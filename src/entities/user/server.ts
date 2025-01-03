@@ -1,1 +1,1 @@
-export type { User } from "./domain";
+export type { UserEntity } from "./domain";

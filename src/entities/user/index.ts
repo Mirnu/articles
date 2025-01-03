@@ -1,5 +1,5 @@
-import { User } from "./domain";
+import { UserEntity } from "./domain";
 
-type UserClient = Omit<User, "salt" | "passwordHash">;
+type UserClient = Omit<UserEntity, "salt" | "passwordHash">;
 
 export type { UserClient as User };

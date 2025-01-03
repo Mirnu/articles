@@ -1,1 +1,1 @@
-export type { Article } from "./domain";
+export type { ArticleEntity } from "./domain";

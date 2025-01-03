@@ -1,1 +1,1 @@
-export type { Comment } from "./domain";
+export type { CommentEntity } from "./domain";

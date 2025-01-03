@@ -1,10 +1,10 @@
-import { Article } from "../article";
-import { User } from "../user/server";
+import { ArticleEntity } from "../article";
+import { UserEntity } from "../user/server";
 
-export type Comment = {
+export type CommentEntity = {
     id: string;
     body: string;
 
-    article: Article;
-    author: User;
+    article: ArticleEntity;
+    author: UserEntity;
 };
