@@ -1,7 +1,7 @@
 import { Article } from "../article";
 import { Comment } from "../comment";
 
-export interface User {
+export type User = {
     id: string;
     login: string;
     passwordHash: string;
@@ -9,4 +9,4 @@ export interface User {
 
     articles: Article[];
     comments: Comment[];
-}
+};

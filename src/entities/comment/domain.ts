@@ -1,10 +1,10 @@
 import { Article } from "../article";
-import { User } from "../user";
+import { User } from "../user/server";
 
-export interface Comment {
+export type Comment = {
     id: string;
     body: string;
 
     article: Article;
     author: User;
-}
+};
