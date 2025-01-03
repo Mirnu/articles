@@ -1,4 +1,4 @@
-import { cn } from "@/shared/lib/utils";
+import { cn } from "@/shared/lib/css";
 import { FC, PropsWithChildren } from "react";
 
 interface Props {
