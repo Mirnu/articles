@@ -1,4 +1,5 @@
 import { sessionService } from "@/entities/user/server";
+import { Button } from "@/shared/ui/button";
 import {
     DropdownMenu,
     DropdownMenuTrigger,
@@ -9,7 +10,7 @@ import { redirect } from "next/navigation";
 import { FC } from "react";
 
 export const UserMenu: FC = async () => {
-    const { isAuth } = await sessionService.verifySession();
+    const { isAuth } = await sessionService.verifySession({});
 
     return isAuth === true ? (
         <>
@@ -29,7 +30,7 @@ export const UserMenu: FC = async () => {
                 redirect("/sign-in");
             }}
         >
-            <DropdownMenuTrigger>Авторизироваться</DropdownMenuTrigger>
+            <Button>Авторизироваться</Button>
         </form>
     );
 };

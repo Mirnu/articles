@@ -49,15 +49,24 @@ async function deleteSession() {
 }
 
 const getSessionCookies = () => cookies().then((c) => c.get("session")?.value);
-const verifySession = async (getCookies = getSessionCookies) => {
+const verifySession = async ({
+    redirected = false,
+    getCookies = getSessionCookies,
+}: {
+    redirected?: boolean;
+    getCookies?: () => Promise<string | undefined>;
+}) => {
     const cookie = await getCookies();
     const session = await decrypt(cookie);
 
-    if (session.type === "left") {
+    if (redirected && session.type === "left") {
         redirect("/sign-in");
     }
 
-    return { isAuth: true, session: session.value };
+    return {
+        isAuth: session.type === "right",
+        session,
+    };
 };
 
 export const sessionService = { addSession, deleteSession, verifySession };
