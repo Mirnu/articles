@@ -30,7 +30,9 @@ export const UserMenu: FC = async () => {
                 redirect("/sign-in");
             }}
         >
-            <Button>Авторизироваться</Button>
+            <Button variant="outline" size="sm">
+                Авторизироваться
+            </Button>
         </form>
     );
 };
