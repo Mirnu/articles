@@ -9,7 +9,7 @@ export const getArticles = async ({
     page: number;
     take: number;
 } & Omit<Prisma.ArticleFindManyArgs, "skip">) => {
-    const skip = (page - 1) * take;
+    const skip = page * take;
 
     return prisma.article.findMany({
         ...args,

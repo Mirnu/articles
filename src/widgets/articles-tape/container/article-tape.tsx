@@ -1,7 +1,7 @@
 "use client";
 
 import { FC, useState } from "react";
-import { ArticlePage } from "./article-page";
+import { ArticlePage } from "../ui/article-page";
 import { Button } from "@/shared/ui/button";
 
 export const ArticleTape: FC = () => {
@@ -15,9 +15,11 @@ export const ArticleTape: FC = () => {
 
     return (
         <div>
-            <h1>Статьи</h1>
-            <div className="flex flex-col gap-4">{pages}</div>
-            <Button onClick={() => setCount(count + 1)}>Дальше</Button>
+            <h1 className="text-xl">Статьи</h1>
+            <div className="flex flex-col mt-8 gap-4">{pages}</div>
+            <Button className="mt-8" onClick={() => setCount(count + 1)}>
+                Дальше
+            </Button>
         </div>
     );
 };

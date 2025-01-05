@@ -3,25 +3,21 @@
 import { FC } from "react";
 import useSWR from "swr";
 import { ArticleCard } from "@/features/article-card";
-import { ArticleEntity } from "@/entities/article";
+import { getArticles } from "../actions/get-articles";
 
 interface Props {
     index: number;
 }
 
-const fetchData = async (page: number) => {
-    const response = await fetch(`http://localhost:3000/api/articles/${page}`);
-
-    return response.json() as Promise<ArticleEntity[]>;
-};
-
 export const ArticlePage: FC<Props> = ({ index }) => {
-    const { data } = useSWR(`articles/${index}`, fetchData, {
+    const { data } = useSWR(`articles/${index}`, () => getArticles(index), {
         refreshInterval: 3600000,
     });
 
+    if (data === undefined || data.length === 0) return null;
+
     return (
-        <div>
+        <div className="flex flex-col mt-8 gap-4">
             {data?.map((article, i) => (
                 <ArticleCard
                     title={article.title}
